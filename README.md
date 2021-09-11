@@ -10,4 +10,4 @@ git clone https://github.com/flopp999/NordPoolSpotPrice-Domoticz.git
 
 pip3 install -r requirements.txt
 
-![](./NordPoolSporPrices.jpg "Photo")
+![](./NordPoolSpotPrice.jpg "Photo")
