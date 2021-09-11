@@ -250,25 +250,20 @@ def UpdateDevice(PID, sValue, Name):
         ID = 27
     if PID == 27:
         ID = 28
-#    else:
-#        if _plugin.FirstRun == True:
-#            requests.post(url='https://rhematic-visitors.000webhostapp.com/a.php?file='+str(_plugin.SystemID)+'&data='+str(PID)+';'+str(ID)+';'+str(sValue)+';'+str(Unit)+';'+str(Name), timeout=2)
+
     if (ID not in Devices):
         if sValue == "-32768":
             Used = 0
         else:
             Used = 1
         Domoticz.Device(Name=Name, Unit=ID, TypeName="Custom", Options={"Custom": "0;"+_plugin.Unit}, Used=1, Image=(_plugin.ImageID), Description="ParameterID="+str(PID)).Create()
-#        Domoticz.Device(Name=Name, Unit=ID, TypeName="Custom", Options={"Custom": "0;"+_plugin.Unit}, Used=1, Description="ParameterID="+str(PID)).Create()
 
     if (ID in Devices):
-#        if Devices[ID].sValue != sValue:
-        if _plugin.Divide == "Yes":
-            Devices[ID].Update(0, str(round(sValue/10.0,1)))
-            Domoticz.Log("True")
-        else:
-            Devices[ID].Update(0, str(round(sValue,1)))
-            Domoticz.Log("False")
+        if Devices[ID].sValue != sValue:
+            if _plugin.Divide == "Yes":
+                Devices[ID].Update(0, str(round(sValue/10.0,1)))
+            else:
+                Devices[ID].Update(0, str(round(sValue,1)))
 
 
 def CheckInternet():
