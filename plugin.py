@@ -3,12 +3,12 @@
 # Author: flopp999
 #
 """
-<plugin key="NordPoolSpotPrice" name="NordPoolSpotPrice 0.1" author="flopp999" version="0.1" wikilink="https://github.com/flopp999/NordPoolSpotPrice-Domoticz" externallink="https://www.nordpoolgroup.com/api/marketdata/page/10">
+<plugin key="NordPoolSpotPrice" name="NordPoolSpotPrice 0.2" author="flopp999" version="0.2" wikilink="https://github.com/flopp999/NordPoolSpotPrice-Domoticz" externallink="https://www.nordpoolgroup.com/api/marketdata/page/10">
     <description>
         <h2>NordPoolSpotPrice is used to read data from https://www.nordpoolgroup.com/api/marketdata/page/10</h2><br/>
         <h2>Support me with a coffee &<a href="https://www.buymeacoffee.com/flopp999">https://www.buymeacoffee.com/flopp999</a></h2><br/>
         <h3>Features</h3>
-        <h2>Presentation of data is raw value and nothing is added eg. TAX, VAT</h2>
+        <h2>Presentation of data is in kWh and nothing is added eg. TAX, VAT</h2>
         <ul style="list-style-type:square">
             <li>..</li>
         </ul>
@@ -263,7 +263,7 @@ def UpdateDevice(PID, sValue, Name):
             if _plugin.Divide == "Yes":
                 Devices[ID].Update(0, str(round(sValue/10.0,1)))
             else:
-                Devices[ID].Update(0, str(round(sValue,1)))
+                Devices[ID].Update(0, str(round(sValue/1000,1)))
 
 
 def CheckInternet():
