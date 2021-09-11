@@ -93,7 +93,6 @@ class BasePlugin:
         return
 
     def onStart(self):
-#        Domoticz.Debugging(1)
         WriteDebug("===onStart===")
         self.Area = Parameters["Mode1"]
         self.Divide = Parameters["Mode2"]
