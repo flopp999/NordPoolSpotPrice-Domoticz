@@ -1,2 +1,2 @@
-nordpool==0.3.2
-requests==2.21.0
+nordpool>=0.3.2
+requests>=2.21.0
