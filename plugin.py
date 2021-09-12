@@ -3,7 +3,7 @@
 # Author: flopp999
 #
 """
-<plugin key="NordPoolSpotPrice" name="NordPoolSpotPrice 0.21" author="flopp999" version="0.21" wikilink="https://github.com/flopp999/NordPoolSpotPrice-Domoticz" externallink="https://www.nordpoolgroup.com/api/marketdata/page/10">
+<plugin key="NordPoolSpotPrice" name="NordPoolSpotPrice 0.23" author="flopp999" version="0.23" wikilink="https://github.com/flopp999/NordPoolSpotPrice-Domoticz" externallink="https://www.nordpoolgroup.com/api/marketdata/page/10">
     <description>
         <h2>NordPoolSpotPrice is used to read data from https://www.nordpoolgroup.com/api/marketdata/page/10</h2><br/>
         <h2>Support me with a coffee &<a href="https://www.buymeacoffee.com/flopp999">https://www.buymeacoffee.com/flopp999</a></h2><br/>
