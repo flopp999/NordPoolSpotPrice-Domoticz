@@ -133,20 +133,21 @@ class BasePlugin:
 
 
     def onHeartbeat(self):
-        HourNow = (datetime.now().hour)
-        MinuteNow = (datetime.now().minute)
+        if CheckInternet() == True:
+            HourNow = (datetime.now().hour)
+            MinuteNow = (datetime.now().minute)
 
-        if MinuteNow < 59 and self.CurrentPriceUpdated is False:
-            WriteDebug("onHeartbeatGetCurrentPrice")
-            CurrentPrice(HourNow)
-        if MinuteNow == 59 and self.CurrentPriceUpdated is True:
+            if MinuteNow < 59 and self.CurrentPriceUpdated is False:
+                WriteDebug("onHeartbeatGetCurrentPrice")
+                CurrentPrice(HourNow)
+            if MinuteNow == 59 and self.CurrentPriceUpdated is True:
                 self.CurrentPriceUpdated = False
 
-        if HourNow >= 0 and MinuteNow >= 2 and MinuteNow < 59 and self.TodayPriceUpdated is False:
-            TodayPrice()
+            if HourNow >= 0 and MinuteNow >= 2 and MinuteNow < 59 and self.TodayPriceUpdated is False:
+                TodayPrice()
 
-        if HourNow == 23 and MinuteNow == 59 and self.TodayPriceUpdated is True:
-            self.TodayPriceUpdated = False
+            if HourNow == 23 and MinuteNow == 59 and self.TodayPriceUpdated is True:
+                self.TodayPriceUpdated = False
 
 global _plugin
 _plugin = BasePlugin()
@@ -269,7 +270,7 @@ def CheckInternet():
     WriteDebug("Entered CheckInternet")
     try:
         WriteDebug("Ping")
-        requests.get(url='https://www.nordpoolgroup.com/', timeout=2)
+        requests.get(url='https://8.8.8.8', timeout=2)
         WriteDebug("Internet is OK")
         return True
     except:
