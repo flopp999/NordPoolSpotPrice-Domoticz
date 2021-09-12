@@ -6,8 +6,8 @@ You can select from different countries/areas and also choose to show in euro/kr
 
 To download those files:
 
-git clone https://github.com/flopp999/NordPoolSpotPrice-Domoticz.git
+sudo git clone https://github.com/flopp999/NordPoolSpotPrice-Domoticz.git
 
-pip3 install -r requirements.txt
+sudo pip3 install -r requirements.txt
 
 ![](./NordPoolSpotPrice.jpg "Photo")
