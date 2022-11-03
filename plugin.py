@@ -3,7 +3,7 @@
 # Author: flopp999
 #
 """
-<plugin key="NordPoolSpotPrice" name="NordPoolSpotPrice 0.23" author="flopp999" version="0.23" wikilink="https://github.com/flopp999/NordPoolSpotPrice-Domoticz" externallink="https://www.nordpoolgroup.com/api/marketdata/page/10">
+<plugin key="NordPoolSpotPrice" name="NordPoolSpotPrice 0.24" author="flopp999" version="0.24" wikilink="https://github.com/flopp999/NordPoolSpotPrice-Domoticz" externallink="https://www.nordpoolgroup.com/api/marketdata/page/10">
     <description>
         <h2>NordPoolSpotPrice is used to read data from https://www.nordpoolgroup.com/api/marketdata/page/10</h2><br/>
         <h2>Support me with a coffee &<a href="https://www.buymeacoffee.com/flopp999">https://www.buymeacoffee.com/flopp999</a></h2><br/>
@@ -96,8 +96,7 @@ class BasePlugin:
         WriteDebug("===onStart===")
         self.Area = Parameters["Mode1"]
         self.Divide = Parameters["Mode2"]
-
-        if len(self.Area) < 3:
+        if len(self.Area) < 2:
             Domoticz.Log("Area too short")
             WriteDebug("Area too short")
 
@@ -105,27 +104,29 @@ class BasePlugin:
             if 'NordPoolSpotPrice' not in Images:
                 Domoticz.Image('NordPoolSpotPrice.zip').Create()
             self.ImageID = Images["NordPoolSpotPrice"].ID
+        Domoticz.Log(str(self.Area))
+        if self.Area == "SE1" or self.Area == "SE2" or self.Area == "SE3" or self.Area == "SE4":
+            Domoticz.Log("SE")
 
-        if self.Area == "SE1" or "SE2" or "SE3" or "SE4":
             self.currency = "SEK"
             if self.Divide == "Yes":
                 self.Unit = "öre"
             else:
                 self.Unit = "kronor"
-        elif self.Area == "DK1" or "DK2":
+        elif self.Area == "DK1" or self.Area == "DK2":
             self.currency = "DKK"
             if self.Divide == "Yes":
                 self.Unit = "øre"
             else:
                 self.Unit = "kroner"
-        elif self.Area == "Oslo" or "Kr.sand" or "Bergen" or "Molde" or "Tr.heim" or "Tromsø":
+        elif self.Area == "Oslo" or self.Area == "Kr.sand" or self.Area == "Bergen" or self.Area == "Molde" or self.Area == "Tr.heim" or self.Area == "Tromsø":
             self.currency = "NOK"
             if self.Divide == "Yes":
                 self.Unit = "øre"
             else:
                 self.Unit = "kroner"
         else:
-            self.curency = "EUR"
+            self.currency = "EUR"
             if self.Divide == "Yes":
                 self.Unit = "cents"
             else:
